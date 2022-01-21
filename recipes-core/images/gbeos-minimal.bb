@@ -10,8 +10,15 @@ IMAGE_INSTALL = "\
     packagegroup-core-full-cmdline \
     packagegroup-core-ssh-openssh \
     tzdata python3-pip perl-misc \
-    parted curl k3s \
+    bash parted curl k3s \
     linux-firmware kernel-modules \
+    python3-ansible python3-ansible-core \
+    python3-cffi python3-cryptography \
+    python3-jinja2 python3-markupsafe \
+    python3-packaging python3-pycparser \
+    python3-pyparsing python3-pyyaml \
+    python3-resolvelib \
+    python3-distutils python3-distutils-extra \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
