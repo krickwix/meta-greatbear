@@ -23,3 +23,10 @@ IMAGE_INSTALL = "\
     "
 
 inherit core-image setuptools3
+
+fakeroot do_mklinks_lib () {
+	cd ${IMAGE_ROOTFS}
+	ln -s lib lib64
+}
+
+IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
