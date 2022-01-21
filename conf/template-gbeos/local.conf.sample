@@ -1,0 +1,3 @@
+DISTRO ?= "gbeos"
+MACHINE ??= "qemux86-64"
+CONF_VERSION = "2"
