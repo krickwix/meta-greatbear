@@ -6,7 +6,7 @@ IMAGE_INSTALL = "\
     packagegroup-core-boot \
     packagegroup-core-full-cmdline \
     packagegroup-core-ssh-openssh \
-    tzdata python3-pip perl-misc \
+    tzdata python3 python3-pip perl-misc \
     bash parted curl k3s \
     linux-firmware kernel-modules \
     python3-ansible python3-ansible-core \
