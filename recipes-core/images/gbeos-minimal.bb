@@ -8,6 +8,7 @@ IMAGE_INSTALL = "\
     packagegroup-core-ssh-openssh \
     tzdata python3 python3-pip perl-misc \
     bash parted curl k3s \
+    e2fsprogs e2fsprogs-resize2fs \
     linux-firmware kernel-modules \
     python3-ansible python3-ansible-core \
     python3-cffi python3-cryptography \
