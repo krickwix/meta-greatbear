@@ -1,0 +1,5 @@
+DISTRO ?= "gbeos"
+MACHINE ??= "jetson-nano-devkit"
+INHERIT += "own-mirrors"
+SOURCE_MIRROR_URL = "http://10.60.16.240/tegra"
+PARALLEL_MAKE = "-j 112"
