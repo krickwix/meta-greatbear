@@ -20,7 +20,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
-inherit core-image setuptools3
+inherit core-image
 
 fakeroot do_mklinks_lib () {
 	cd ${IMAGE_ROOTFS}
