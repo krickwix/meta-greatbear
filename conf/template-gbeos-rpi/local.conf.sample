@@ -5,4 +5,4 @@ CMDLINE_ROOTFS ?= "root=/dev/mmcblk0p2 rootfstype=ext4 rootwait cgroup_memory=1 
 CONF_VERSION = "2"
 IMAGE_ROOTFS_EXTRA_SPACE = "10240"
 INHERIT += "own-mirrors"
-SOURCE_MIRROR_URL = "http://10.60.16.240/tegra"
+SOURCE_MIRROR_URL = "http://10.60.16.240/rpi"
