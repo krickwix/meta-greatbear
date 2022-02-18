@@ -1,8 +1,8 @@
 DESCRIPTION = "GBEOS minimal image"
 
-IMAGE_FEATURES:append = " splash ssh-server-openssh package-management"
+DISTRO_FEATURES:append = " opengl x11 x11-base"
+IMAGE_FEATURES:append = " splash ssh-server-openssh package-management hwcodecs x11 x11-base"
 IMAGE_FEATURES:append = " debug-tweaks empty-root-password allow-empty-password allow-root-login post-install-logging"
-IMAGE_FEATURES:append = " x11-base hwcodecs"
 IMAGE_INSTALL = "\
     packagegroup-core-boot \
     packagegroup-core-full-cmdline \
@@ -11,7 +11,6 @@ IMAGE_INSTALL = "\
     bash parted curl k3s \
     e2fsprogs e2fsprogs-resize2fs \
     linux-firmware kernel-modules \
-    alsa-oss \
     python3-ansible python3-ansible-core \
     python3-cffi python3-cryptography \
     python3-jinja2 python3-markupsafe \
@@ -19,6 +18,7 @@ IMAGE_INSTALL = "\
     python3-pyparsing python3-pyyaml \
     python3-resolvelib \
     python3-distutils python3-distutils-extra \
+    chromium-x11 \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
@@ -30,3 +30,5 @@ fakeroot do_mklinks_lib () {
 }
 
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
+
+BUILD_OPTIMIZATION = "-Os"
