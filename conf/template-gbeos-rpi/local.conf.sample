@@ -3,7 +3,7 @@ MACHINE ??= "raspberrypi4-64"
 #MACHINE ??= "raspberrypi3-64
 CMDLINE_ROOTFS:append = " cgroup_memory=1 cgroup_enable=memory"
 CONF_VERSION = "2"
-IMAGE_ROOTFS_EXTRA_SPACE = "10240"
+IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL = "http://10.60.16.240/rpi"
 
