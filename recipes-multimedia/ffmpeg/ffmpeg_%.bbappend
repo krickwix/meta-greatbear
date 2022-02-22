@@ -1,3 +1,2 @@
-PACKAGECONFIG:append = " ffplay mmal"
+PACKAGECONFIG:append = " ffplay vaapi"
 PACKAGECONFIG[ffplay] = "--enable-ffplay,--disable-ffplay"
-PACKAGECONFIG[mmal] = "--enable-mmal,--disable-mmal"
