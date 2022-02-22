@@ -1,5 +1,5 @@
 DESCRIPTION = "GBEOS container image"
-
+BUILD_OPTIMIZATION = "-Os"
 DISTRO_FEATURES:append = " opengl"
 IMAGE_FEATURES:append = " x11 x11-base hwcodecs"
 IMAGE_FSTYPES = "container"

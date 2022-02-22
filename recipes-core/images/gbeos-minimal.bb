@@ -1,5 +1,5 @@
 DESCRIPTION = "GBEOS minimal image"
-
+BUILD_OPTIMIZATION = "-Os"
 IMAGE_FEATURES:append = " splash ssh-server-openssh package-management"
 IMAGE_FEATURES:append = " debug-tweaks empty-root-password allow-empty-password allow-root-login post-install-logging"
 IMAGE_FEATURES:append = " x11-base hwcodecs"
@@ -30,3 +30,5 @@ fakeroot do_mklinks_lib () {
 }
 
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
+
+
