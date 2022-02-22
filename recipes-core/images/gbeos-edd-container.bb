@@ -1,15 +1,16 @@
 DESCRIPTION = "GBEOS EDD container image"
 BUILD_OPTIMIZATION = "-Os"
 DISTRO_FEATURES:append = " opengl pulseaudio"
-IMAGE_FEATURES:append = " x11-base hwcodecs"
+IMAGE_FEATURES:append = " x11-base hwcodecs "
 IMAGE_FSTYPES = "container"
 PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
+MACHINE_FEATURES += "vc4graphics"
 
 IMAGE_INSTALL = "\
     packagegroup-core-full-cmdline \
     bash curl wget nss cups userland \
-    pulseaudio alsa-oss \
-    ffmpeg mesa libva chromium-x11 x11vnc \
+    pulseaudio alsa-oss libsdl2 \
+    ffmpeg mesa libva chromium-x11 x11vnc live555 \
     nodejs \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
