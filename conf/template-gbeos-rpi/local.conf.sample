@@ -1,8 +1,39 @@
 DISTRO ?= "gbeos"
 MACHINE ??= "raspberrypi4-64"
 #MACHINE ??= "raspberrypi3-64
-CMDLINE_ROOTFS ?= "root=/dev/mmcblk0p2 rootfstype=ext4 rootwait cgroup_memory=1 cgroup_enable=memory"
+CMDLINE_ROOTFS:append = " cgroup_memory=1 cgroup_enable=memory"
+DISPMANX_OFFLINE = "1"
+DISABLE_OVERSCAN = "1"
+RPI_EXTRA_CONFIG = '\n\
+force_turbo=1 \n\
+arm_boost=1 \n\
+arm_freq=1800 \n\
+core_freq=550 \n\
+h264_freq=550 \n\
+isp_freq=550 \n\
+v3d_freq=550 \n\
+hevc_freq=550 \n\
+sdram_freq=3200 \n\
+arm_freq_min=600 \n\
+core_freq_min=200 \n\
+gpu_freq_min=250 \n\
+h264_freq_min=250 \n\
+isp_freq_min=250 \n\
+v3d_freq_min=250 \n\
+sdram_freq_min=3200 \n\
+temp_limit=85 \n\
+over_voltage=7 \n\
+over_voltage_min=0 \n\
+over_voltage_sdram=6 \n\
+over_voltage_sdram_c=6 \n\
+over_voltage_sdram_i=6 \n\
+over_voltage_sdram_p=6 \n\
+dtoverlay=vc4-kms-v3d \n\
+dtparam=audio=on \n\
+disable_overscan=1 \n\
+'
 CONF_VERSION = "2"
-IMAGE_ROOTFS_EXTRA_SPACE = "10240"
+IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL = "http://10.60.16.240/rpi"
+

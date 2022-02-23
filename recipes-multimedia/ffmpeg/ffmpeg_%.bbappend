@@ -1,0 +1,7 @@
+PACKAGECONFIG:append = " nonfree gpl version3 sdl2 ffplay vaapi"
+PACKAGECONFIG[ffplay] = "--enable-ffplay,--disable-ffplay"
+PACKAGECONFIG[mmal] = "--enable-mmal,--disable-mmal,userland"
+PACKAGECONFIG[nonfree] = "--enable-nonfree,--disable-nonfree"
+PACKAGECONFIG[version3] = "--enable-version3,--disable-version3"
+PACKAGECONFIG[gpl] = "--enable-gpl,--disable-gpl"
+PACKAGECONFIG[sdl2] = "--enable-sdl2,--disable-sdl2,libsdl2"

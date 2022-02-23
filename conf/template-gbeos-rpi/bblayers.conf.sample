@@ -9,9 +9,12 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-virtualization \
   ##OEROOT##/../meta-raspberrypi \
   ##OEROOT##/../meta-greatbear \
+  ##OEROOT##/../meta-clang \
+  ##OEROOT##/../meta-browser/meta-chromium \
   ##OEROOT##/../meta-openembedded/meta-networking \
   ##OEROOT##/../meta-openembedded/meta-python \
   ##OEROOT##/../meta-openembedded/meta-perl \
   ##OEROOT##/../meta-openembedded/meta-filesystems \
   ##OEROOT##/../meta-openembedded/meta-oe \
+  ##OEROOT##/../meta-openembedded/meta-multimedia \
   "
