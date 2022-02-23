@@ -10,7 +10,7 @@ IMAGE_INSTALL = "\
     packagegroup-core-full-cmdline \
     bash curl wget nss cups userland \
     pulseaudio alsa-oss libsdl2 \
-    ffmpeg mesa libva chromium-x11 x11vnc live555 \
+    ffmpeg mesa libva chromium-x11 x11vnc \
     nodejs \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
