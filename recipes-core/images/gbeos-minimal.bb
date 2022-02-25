@@ -30,6 +30,34 @@ fakeroot do_mklinks_lib () {
 	ln -s lib lib64
 }
 
+fakeroot add_rootpart_resize () {
+  cat > ${IMAGE_ROOTFS}/usr/local/bin/resizerootpart.sh << EOF
+#!/bin/bash
+
+/usr/sbin/parted /dev/mmcblk0 -s 'resizepart 2 -1'
+/sbin/resize2fs /dev/mmcblk0p2
+EOF
+  cat > ${IMAGE_ROOTFS}/etc/systemd/system/fb-resize-root.service << EOF
+[Unit]
+Before=systemd-user-sessions.service
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/var/lib/resizerootpart
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/resizerootpart.sh
+ExecStartPost=/bin/touch /var/lib/resizerootpart
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  chmod a+rx ${IMAGE_ROOTFS}/usr/local/bin/resizerootpart.sh
+  ln -s /etc/systemd/system/fb-resize-root.service ${IMAGE_ROOTFS}/etc/systemd/system/multi-user.target.wants/fb-resize-root.service
+}
+
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
+IMAGE_PREPROCESS_COMMAND += "add_rootpart_resize; "
 
 
