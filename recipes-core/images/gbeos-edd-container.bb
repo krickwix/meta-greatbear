@@ -1,5 +1,4 @@
 DESCRIPTION = "GBEOS EDD container image"
-BUILD_OPTIMIZATION = "-Os"
 DISTRO_FEATURES:append = " opengl pulseaudio"
 IMAGE_FEATURES:append = " x11-base hwcodecs "
 IMAGE_FSTYPES = "container"
@@ -30,6 +29,5 @@ fakeroot do_mklinks_lib () {
 
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
 
-LICENSE_FLAGS_WHITELIST:append = " commercial"
+LICENSE_FLAGS_ACCEPTED:append = " commercial"
 
-BUILD_OPTIMIZATION = "-Os"

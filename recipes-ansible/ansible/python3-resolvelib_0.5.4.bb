@@ -2,7 +2,7 @@
 SUMMARY = "Resolve abstract dependencies into concrete ones"
 HOMEPAGE = "https://github.com/sarugaku/resolvelib"
 AUTHOR = "Tzu-ping Chung <uranusjr@gmail.com>"
-LICENSE = "MIT"
+LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78e1c0248051c32a38a7f820c30bd7a5"
 
 SRC_URI = "https://files.pythonhosted.org/packages/8f/7f/b8b2c7e8b2030710b6ef2d14b2201272dfe437d6c37cec29c60f38d3139d/resolvelib-0.5.4.tar.gz"
