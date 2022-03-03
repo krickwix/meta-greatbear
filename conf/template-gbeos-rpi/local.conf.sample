@@ -22,12 +22,12 @@ isp_freq_min=250 \n\
 v3d_freq_min=250 \n\
 sdram_freq_min=3200 \n\
 temp_limit=85 \n\
-over_voltage=7 \n\
+over_voltage=0 \n\
 over_voltage_min=0 \n\
-over_voltage_sdram=6 \n\
-over_voltage_sdram_c=6 \n\
-over_voltage_sdram_i=6 \n\
-over_voltage_sdram_p=6 \n\
+over_voltage_sdram=0 \n\
+over_voltage_sdram_c=0 \n\
+over_voltage_sdram_i=0 \n\
+over_voltage_sdram_p=0 \n\
 dtoverlay=vc4-kms-v3d \n\
 dtparam=audio=on \n\
 disable_overscan=1 \n\
