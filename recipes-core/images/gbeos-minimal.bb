@@ -13,6 +13,7 @@ IMAGE_INSTALL = "\
     e2fsprogs e2fsprogs-resize2fs \
     linux-firmware kernel-modules \
     alsa-oss libsdl2 userland \
+    pulseaudio-server alsa-utils \
     python3-ansible python3-ansible-core \
     python3-cffi python3-cryptography \
     python3-jinja2 python3-markupsafe \

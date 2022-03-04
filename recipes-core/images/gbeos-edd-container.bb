@@ -7,11 +7,13 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
 MACHINE_FEATURES += "vc4graphics"
 
 IMAGE_INSTALL = "\
+    packagegroup-fonts-truetype \
     packagegroup-core-full-cmdline \
     bash curl wget nss cups userland \
     pulseaudio alsa-oss libsdl2 \
     ffmpeg mesa libva chromium-x11 x11vnc \
-    nodejs \
+    nodejs mpv \
+    alsa-equal tinyalsa alsa-tools \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 
