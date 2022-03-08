@@ -5,7 +5,6 @@ BBLAYERS ?= " \
   ##OEROOT##/../poky/meta \
   ##OEROOT##/../poky/meta-poky \
   ##OEROOT##/../poky/meta-yocto-bsp \
-  ##OEROOT##/../meta-security \
   ##OEROOT##/../meta-virtualization \
   ##OEROOT##/../meta-raspberrypi \
   ##OEROOT##/../meta-greatbear \

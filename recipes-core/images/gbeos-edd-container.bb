@@ -32,6 +32,5 @@ fakeroot do_mklinks_lib () {
 
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
 
-LICENSE_FLAGS_WHITELIST:append = " commercial"
+LICENSE_FLAGS_ACCEPTED:append = " commercial"
 
-BUILD_OPTIMIZATION = "-Os"
