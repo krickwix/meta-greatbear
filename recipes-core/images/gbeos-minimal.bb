@@ -14,7 +14,7 @@ IMAGE_INSTALL = "\
     linux-firmware kernel-modules \
     wpa-supplicant \
     alsa-oss libsdl2 userland \
-    pulseaudio-server alsa-utils \
+    pulseaudio-server pulseaudio alsa-utils \
     python3-ansible python3-ansible-core \
     python3-distutils python3-distutils-extra \
     ${CORE_IMAGE_EXTRA_INSTALL} \
@@ -34,7 +34,7 @@ fakeroot add_rootpart_resize () {
 /usr/sbin/parted /dev/mmcblk0 -s 'resizepart 2 -1'
 /sbin/resize2fs /dev/mmcblk0p2
 EOF
-  cat > ${IMAGE_ROOTFS}/etc/systemd/system/fb-resize-root.service << EOF
+	  cat > ${IMAGE_ROOTFS}/etc/systemd/system/fb-resize-root.service << EOF
 [Unit]
 Before=systemd-user-sessions.service
 Wants=network-online.target
@@ -54,7 +54,32 @@ EOF
   ln -s /etc/systemd/system/fb-resize-root.service ${IMAGE_ROOTFS}/etc/systemd/system/multi-user.target.wants/fb-resize-root.service
 }
 
+fakeroot customize_image () {
+  mkdir -p ${IMAGE_ROOTFS}/etc/pulse/system.pa.d
+  cat > ${IMAGE_ROOTFS}/etc/pulse/system.pa.d/00-allow-anon << EOF
+load-module module-native-protocol-unix auth-anonymous=1
+EOF
+
+  cat > ${IMAGE_ROOTFS}/etc/systemd/system/pulseaudio-server.service << EOF
+[Unit]
+Description=pulseaudio
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/pulseaudio --system -v
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  ln -s /etc/systemd/system/pulseaudio-server.service ${IMAGE_ROOTFS}/etc/systemd/system/multi-user.target.wants/pulseaudio-server.service
+  sed -i '/load-module module-native-protocol-unix/c\load-module module-native-protocol-unix auth-anonymous=1' ${IMAGE_ROOTFS}/etc/pulse/system.pa
+}
+
+
+inherit setuptools3
 IMAGE_PREPROCESS_COMMAND += "do_mklinks_lib; "
 IMAGE_PREPROCESS_COMMAND += "add_rootpart_resize; "
-
+IMAGE_PREPROCESS_COMMAND += "customize_image; "
 
